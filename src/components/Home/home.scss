@@ -1,0 +1,11 @@
+@import "../../style/mixins.scss";
+
+.home{
+    .btn-add-post, .btn-my-post{
+        @include btn();
+    }
+    .current-user{
+        margin: 15px;
+        font-size: 21px;
+    }
+}

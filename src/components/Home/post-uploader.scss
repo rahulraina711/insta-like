@@ -1,0 +1,39 @@
+@import "../../style/mixins.scss";
+
+.post-editor{
+    @include card();
+    margin-bottom: 10px;
+    input ,textarea{
+        display: block;
+        margin: 10px;
+        padding: 10px;
+        width:100%;
+    }
+
+    textarea{
+        background: wheat;
+        border-radius: 10px;
+    }
+
+    .btn-upload,.btn-cancel{
+        padding: 10px;
+        transition: 0.5s;
+    }
+
+    .btn-upload{
+        color: rgb(43, 99, 64);
+    }
+    .btn-upload:hover{
+        color:white;
+        background:rgb(43, 99, 64);
+    }
+
+    .btn-cancel{
+        color:red;
+    }
+    .btn-cancel:hover{
+        color:white;
+        background:red;
+    }
+
+}

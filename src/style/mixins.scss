@@ -1,0 +1,27 @@
+@mixin btn() {
+    padding: 0.5rem;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+
+    &:hover {
+        box-shadow: var(--best-shadow);
+    }
+}
+
+@mixin link () {
+    color: rgb(217, 245, 141);
+}
+
+@mixin bg-gr() {
+    background: rgb(131, 58, 180);
+    background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
+}
+
+@mixin card() {
+    padding: 1rem;
+    border-radius: 10px;
+    background: orange;
+    box-shadow: var(--best-shadow);
+}

@@ -1,0 +1,17 @@
+.navbar{
+    padding: 10px;
+    margin-bottom: 2rem;
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    background: white;
+    width: 1152px;
+
+    .auths{
+        display: flex;
+
+        a{
+            margin-right: 15px;
+        }
+    }
+}

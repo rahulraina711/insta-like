@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+@import "../../style/mixins.scss";
+
+.post {
+    display: flex;
+    justify-content: space-between;
+    
+
+    padding: 1.5rem;
+    @include bg-gr;
+    .left {
+        
+        flex: 2;
+        background: rgba(255, 255, 255, 0.30);
+        
+
+
+        .name,
+        .desc,
+        .image {
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .name {
+            font-size: 1.5rem;
+            color: aliceblue;
+        }
+
+        .image {
+            position: relative;
+            left: 52.5px;
+            border-radius: 10px;
+            box-shadow: var(--best-shadow);
+        }
+        .desc{
+            background: white;
+            padding: 15px;
+        }
+        .btn-like{
+            position: relative;
+            left: 200px;
+            padding: 10px;
+            background: hotpink;
+            color: white;
+            border-radius: 10px;
+        }
+        .btn-like:hover{
+            cursor: pointer;
+        }
+        .btn-not-like{
+            position: relative;
+            left: 200px;
+            padding: 10px;
+            background: rgb(255, 255, 255);
+            color: hotpink;
+            border-radius: 10px;
+        }
+        .btn-not-like:hover{
+            cursor: pointer;
+        }
+
+        .desc {
+            font-family: 'Caveat', cursive;
+        }
+        
+        .btn-delete, .btn-edit{
+            @include btn();
+            transition: 0.5s ;
+        }
+
+        .btn-delete{
+            color:red;
+            
+        }
+        .btn-delete:hover{
+            color: white;
+            background: red;
+        }
+
+        .btn-edit{
+            color: rgb(69, 167, 69);
+        }
+        .btn-edit:hover{
+            color: white;
+            background: rgb(69, 167, 69);
+        }
+    }
+
+    .right {
+        flex:3 ;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        background: rgba(255, 255, 255, 0.30);
+
+        .comments{
+            margin-bottom: 10px;
+            padding: 0.5rem;
+            background: rgb(213, 141, 247);
+            height: 350px;
+            overflow: hidden;
+        }
+        .comments:hover{
+            overflow: scroll;
+        }
+        .add-comments{
+            flex:150px;
+            display: flex;
+            flex-direction: column;
+            padding: 0.5rem;
+            background: rgb(238, 200, 143);
+
+            textarea{
+                border-radius: 20px;
+                background: silver;
+                padding: 20px;
+            }
+            button{
+                margin-top: 10px;
+                background: springgreen;
+                width: 100px;
+                padding: 5px;
+                border-radius: 10px;
+                transition: 0.5s;
+            }
+            button:hover{
+                background: rgb(23, 116, 35);
+                color: white;
+                cursor: pointer;
+            }
+        }
+        
+    }
+
+}
