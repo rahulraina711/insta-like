@@ -10,7 +10,7 @@ function UserContextProvider(props){
     const [user,setUser] = useState(undefined);
 
     async function getUser(){
-        const userRes = await axios.get("http://localhost:3100/user/loggedIn");
+        const userRes = await axios.get(domain+"/user/loggedIn");
         setUser(userRes.data);
     }
 

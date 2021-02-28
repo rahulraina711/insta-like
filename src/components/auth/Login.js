@@ -2,6 +2,7 @@ import axios from 'axios';
 import React , {useContext, useState} from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import UserContext from '../../context/UsesrContext';
+import domain from '../../util/domain';
 import "./AuthForm.scss"
 
 function Login(){
@@ -19,7 +20,7 @@ function Login(){
             password: formPassword
         }
 
-        await axios.post("http://localhost:3100/user/login", loginData);
+        await axios.post(domain+"/user/login", loginData);
         await getUser();
         history.push("/");
 

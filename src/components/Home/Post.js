@@ -3,6 +3,7 @@ import React ,{useState, useEffect} from 'react';
 import axios from 'axios';
 import "./Post.scss";
 import Comment from './Comments'
+import domain from '../../util/domain';
 
 function Post(props){
     const [comments, setComments] = useState([]);
@@ -20,7 +21,7 @@ function Post(props){
     //to get all the posts
     async function getComments(){
 
-        const commentsRes = await axios.get("http://localhost:3100/comments/"+props.post._id);
+        const commentsRes = await axios.get(domain+"/comments/"+props.post._id);
         if (props.post.likes.includes( await user.userId)){
             setLikeBtnState("btn-like");
         };
@@ -29,7 +30,7 @@ function Post(props){
     }
 
     async function deletePost(){
-        await axios.delete('http://localhost:3100/posts/'+props.post._id);
+        await axios.delete(domain+'/posts/'+props.post._id);
 
         props.getPosts();
     };
@@ -51,7 +52,7 @@ function Post(props){
             "postId":props.post._id
         }
 
-        await axios.post("http://localhost:3100/comments/"+props.post._id, commentData).then(res=>console.log(res));
+        await axios.post(domain+"/comments/"+props.post._id, commentData).then(res=>console.log(res));
         getComments();
         
     }
@@ -63,20 +64,20 @@ function Post(props){
         }
         if(likeBtnState==="btn-not-like"){
             setLikeBtnState("btn-like");
-            await axios.put("http://localhost:3100/posts/like",likeData);
+            await axios.put(domain+"/posts/like",likeData);
             props.getPosts();
             setLikes(likes+1);
         }
         else if(likeBtnState==="btn-like"){
             setLikeBtnState("btn-not-like");
-            await axios.put("http://localhost:3100/posts/unlike",likeData);
+            await axios.put(domain+"/posts/unlike",likeData);
             props.getPosts();
             setLikes(likes-1);
         };
         
     }
     // async function userProfile(){
-    //     await props.setMyPosts("http://localhost:3100/user?email="+user.email);
+    //     await props.setMyPosts(domain+"/user?email="+user.email);
     //     await props.getPosts();
     // };
 
@@ -84,10 +85,10 @@ function Post(props){
     return <div className="post">
         <div className="left">
         {props.post.email && <h2 className="name">By <button className="btn-user-profile" >{props.post.email}</button> </h2>}
-        <img className="image" src={"http://localhost:3100/"+props.post.postImage} height="400" width="300"></img>
+        <img className="image" src={domain+"/"+props.post.postImage} height="400" width="300"></img>
         {user && (<button className={likeBtnState} onClick={changeLikeBtnState}>Likes :{likes}</button>)}
         {props.post.desc && <h2 className="desc">{props.post.desc}</h2>}
-        {props.defaultUrl!=='http://localhost:3100/posts/' &&<button className="btn-delete" onClick={deletePost}>Delete Post</button>}
+        {props.defaultUrl!==domain+'/posts/' &&<button className="btn-delete" onClick={deletePost}>Delete Post</button>}
         
         </div>
         <div className="right">

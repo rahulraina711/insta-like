@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useContext } from "react";
 import { Link , useHistory} from "react-router-dom";
 import UserContext from "../../context/UsesrContext";
+import domain from "../../util/domain";
 import "./navbar.scss";
 
 function Navbar(){
@@ -11,7 +12,7 @@ function Navbar(){
     
 
     async function logout(){
-        await axios.get("http://localhost:3100/user/loggedOut");
+        await axios.get(domain+"/user/loggedOut");
         history.push("/login");
         
     };

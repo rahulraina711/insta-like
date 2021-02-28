@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React , {useState} from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import domain from '../../util/domain';
 import "./AuthForm.scss";
 
 function Register(){
@@ -17,7 +18,7 @@ function Register(){
             password: formPassword
         }
 
-        await axios.post("http://localhost:3100/user/signup", registerData);
+        await axios.post(domain+"/user/signup", registerData);
         history.push("/login");
     }
 

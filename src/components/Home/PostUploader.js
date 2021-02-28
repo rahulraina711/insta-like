@@ -1,6 +1,7 @@
 import React , {useState} from 'react';
 import axios from 'axios';
 import "./post-uploader.scss"
+import domain from '../../util/domain';
 
 function PostEditor(props){
     const [editorDescription, setEditorDescription] = useState("");
@@ -28,7 +29,7 @@ function PostEditor(props){
         postData.append('desc',editorDescription);
         postData.append('postImage',selectedFile);
         console.log(postData);
-        await axios.post("http://localhost:3100/posts/", postData).then(res=>console.log(res));
+        await axios.post(domain+"/posts/", postData).then(res=>console.log(res));
     
         props.getPosts();
         closeEditor();

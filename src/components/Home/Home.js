@@ -4,12 +4,13 @@ import Post from './Post'
 import PostEditor from './PostUploader';
 import "./home.scss";
 import UserContext from '../../context/UsesrContext';
+import domain from '../../util/domain';
 
 function Home(){
     const {user} = useContext(UserContext);
 
-    const global = 'http://localhost:3100/posts/';
-    //const personal = 'http://localhost:3100/user?email='+user.email;
+    const global = domain+'/posts/';
+    //const personal = domain+'/user?email='+user.email;
     //console.log(global, personal);
 
     const [defaultPosts, setMyPosts] = useState(global);
@@ -25,7 +26,7 @@ function Home(){
     },[]);
 
     function myPosts(){
-        setMyPosts("http://localhost:3100/user?email="+user.email);
+        setMyPosts(domain+"/user?email="+user.email);
         getPosts();
     }
 
