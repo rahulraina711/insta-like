@@ -4,30 +4,35 @@ import Post from './Post'
 import PostEditor from './PostUploader';
 import "./home.scss";
 import UserContext from '../../context/UsesrContext';
+import { Link } from 'react-router-dom';
 import domain from '../../util/domain';
 
 function Home(){
     const {user} = useContext(UserContext);
 
     const global = domain+'/posts/';
-    //const personal = domain+'/user?email='+user.email;
-    //console.log(global, personal);
 
-    const [defaultPosts, setMyPosts] = useState(global);
+    const [time, setTime] = useState(new Date().toLocaleDateString()+" "+new Date().toLocaleTimeString())
+    const [defaultPosts, setMyPosts] = useState(global); //get global posts >>> get personal posts
     const [posts, setPosts] = useState([]);
-    const [newPostUploaderOPen, setNewPostUploaderOpen] = useState(false); //not open by default
-    const [editPostData, setEditPostData] = useState(null);
+    const [newPostUploaderOPen, setNewPostUploaderOpen] = useState(false); // cannot upload without logging in >>> can upload after
+    const [editPostData, setEditPostData] = useState(null); // cannot edit your post without logging in >>> can do it after
 
-    
-  
+    //update time
+    setTimeout(() => {
+        setTime(new Date().toLocaleDateString()+" "+new Date().toLocaleTimeString());
+    }, 1000);
+
+    // get the requested posts (global or personal everytime a new post is added);   
     useEffect(() => {
         // get all the posts here
         getPosts();
-    },[]);
+    },[defaultPosts]);
 
+    // to get user specific posts
     function myPosts(){
         setMyPosts(domain+"/user?email="+user.email);
-        getPosts();
+        //getPosts();
     }
 
     //to get all the posts
@@ -42,6 +47,7 @@ function Home(){
         setEditPostData(postData);
     }
 
+    // render posts from Post component
     function renderPosts(){
         let sortedPosts = [...posts];
         sortedPosts = sortedPosts.sort((a, b)=>{
@@ -54,9 +60,10 @@ function Home(){
 
     
     
-    
+    // render the hoome page
     return <div className="home">
-        {user ?(<div className="current-user">Welcome {user.email}</div>):(<div className="current-user">Please Sign-in to like and comment</div>)}
+        {/* {terinary statements to determine whether a user is logged in on not} */}
+        {user ?(<div className="current-user"><div>Welcome {user.email}</div><div>{time}</div></div>):(<div className="current-user">Please <Link to="/login">Log-in</Link> to like and comment</div>)}
         {!newPostUploaderOPen && user && <button className="btn-add-post" onClick={()=>setNewPostUploaderOpen(true)}>
             Add Post
             </button>}

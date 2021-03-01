@@ -13,24 +13,30 @@
         font-size: 20px;
 
         input{
+            padding: 10px;
             border: unset;
             margin-bottom: 20px;
             height: 35px;
             border-radius: 12px;
         }
-        button{
+        .btn-action{
             color:green;
             width: 100px;
             height: 30px;
             transition: 0.5s;
 
+            &:hover{
+                color: white;
+                cursor: pointer;
+                background: yellowgreen;
+            }
+        .btn-attr{
+            padding: 0;
+            font-size: 12px;
         }
-        button:hover{
-            
-            color: white;
-            cursor: pointer;
-            background: yellowgreen;
+
         }
+        
     }
       
 }

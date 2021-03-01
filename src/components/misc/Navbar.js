@@ -6,7 +6,7 @@ import domain from "../../util/domain";
 import "./navbar.scss";
 
 function Navbar(){
-
+    // useContext to get a logged in user
     const{user} = useContext(UserContext);
     const history = useHistory();
     

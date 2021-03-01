@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React ,{useState, useEffect} from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import "./Post.scss";
 import Comment from './Comments'
@@ -15,7 +16,10 @@ function Post(props){
 
     useEffect(() => {
         // get all the posts here
-        getComments();
+        if(user){
+            getComments();
+        }
+        
     },[]);
 
     //to get all the posts
@@ -76,15 +80,11 @@ function Post(props){
         };
         
     }
-    // async function userProfile(){
-    //     await props.setMyPosts(domain+"/user?email="+user.email);
-    //     await props.getPosts();
-    // };
 
 
     return <div className="post">
         <div className="left">
-        {props.post.email && <h2 className="name">By <button className="btn-user-profile" >{props.post.email}</button> </h2>}
+        {props.post.email && <h2 className="name"><Link to="#">{props.post.email}</Link></h2>}
         <img className="image" src={domain+"/"+props.post.postImage} height="400" width="300"></img>
         {user && (<button className={likeBtnState} onClick={changeLikeBtnState}>Likes :{likes}</button>)}
         {props.post.desc && <h2 className="desc">{props.post.desc}</h2>}

@@ -40,27 +40,33 @@
             padding: 15px;
         }
         .btn-like{
+            margin-bottom: 10px;
             position: relative;
-            left: 200px;
+            left: 175px;
             padding: 10px;
             background: hotpink;
             color: white;
             border-radius: 10px;
+
+            &:hover{
+                cursor: pointer;
+            }
         }
-        .btn-like:hover{
-            cursor: pointer;
-        }
+        
         .btn-not-like{
+            margin-bottom: 10px;
             position: relative;
-            left: 200px;
+            left: 175px;
             padding: 10px;
             background: rgb(255, 255, 255);
             color: hotpink;
             border-radius: 10px;
+
+            &:hover{
+                cursor: pointer;
+            }
         }
-        .btn-not-like:hover{
-            cursor: pointer;
-        }
+        
 
         .desc {
             font-family: 'Caveat', cursive;
@@ -82,10 +88,11 @@
 
         .btn-edit{
             color: rgb(69, 167, 69);
-        }
-        .btn-edit:hover{
-            color: white;
-            background: rgb(69, 167, 69);
+
+            &:hover{
+                color: white;
+                background: rgb(69, 167, 69);
+            }
         }
     }
 

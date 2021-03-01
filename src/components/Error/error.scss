@@ -1,0 +1,16 @@
+.msg-error{
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    background: rgb(240, 81, 81);
+    border-radius: 5px;
+
+    button{
+
+        &:hover{
+            color: rgb(250, 242, 242);
+            cursor: pointer;
+        }
+    }
+    
+}
