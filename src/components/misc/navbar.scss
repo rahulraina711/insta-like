@@ -1,11 +1,15 @@
 .navbar{
+    
     padding: 10px;
     margin-bottom: 2rem;
+    
     display:flex;
     justify-content: space-between;
     align-items:center;
-    background: white;
+    background: rgb(222, 233, 232);
     width: 1152px;
+    border-radius: 25px;
+    
 
     .auths{
         display: flex;
@@ -13,5 +17,11 @@
         a{
             margin-right: 15px;
         }
+
+        .link{
+            color: rgb(243, 34, 149);
+        }
     }
+
+    
 }

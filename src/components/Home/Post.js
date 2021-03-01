@@ -86,7 +86,7 @@ function Post(props){
         <div className="left">
         {props.post.email && <h2 className="name"><Link to="#">{props.post.email}</Link></h2>}
         <img className="image" src={domain+"/"+props.post.postImage} height="400" width="300"></img>
-        {user && (<button className={likeBtnState} onClick={changeLikeBtnState}>Likes :{likes}</button>)}
+        {user && (<button className={likeBtnState} onClick={changeLikeBtnState}>{likes} Likes</button>)}
         {props.post.desc && <h2 className="desc">{props.post.desc}</h2>}
         {props.defaultUrl!==domain+'/posts/' &&<button className="btn-delete" onClick={deletePost}>Delete Post</button>}
         

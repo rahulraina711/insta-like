@@ -4,16 +4,16 @@
 .post {
     display: flex;
     justify-content: space-between;
-    
+
 
     padding: 1.5rem;
     @include bg-gr;
+
     .left {
-        
+
         flex: 2;
         background: rgba(255, 255, 255, 0.30);
-        
-
+        padding: 10px;
 
         .name,
         .desc,
@@ -35,11 +35,13 @@
             border-radius: 10px;
             box-shadow: var(--best-shadow);
         }
-        .desc{
+
+        .desc {
             background: white;
             padding: 15px;
         }
-        .btn-like{
+
+        .btn-like {
             margin-bottom: 10px;
             position: relative;
             left: 175px;
@@ -48,12 +50,12 @@
             color: white;
             border-radius: 10px;
 
-            &:hover{
+            &:hover {
                 cursor: pointer;
             }
         }
-        
-        .btn-not-like{
+
+        .btn-not-like {
             margin-bottom: 10px;
             position: relative;
             left: 175px;
@@ -62,34 +64,36 @@
             color: hotpink;
             border-radius: 10px;
 
-            &:hover{
+            &:hover {
                 cursor: pointer;
             }
         }
-        
+
 
         .desc {
             font-family: 'Caveat', cursive;
         }
-        
-        .btn-delete, .btn-edit{
+
+        .btn-delete,
+        .btn-edit {
             @include btn();
-            transition: 0.5s ;
+            transition: 0.5s;
         }
 
-        .btn-delete{
-            color:red;
-            
+        .btn-delete {
+            color: red;
+
         }
-        .btn-delete:hover{
+
+        .btn-delete:hover {
             color: white;
             background: red;
         }
 
-        .btn-edit{
+        .btn-edit {
             color: rgb(69, 167, 69);
 
-            &:hover{
+            &:hover {
                 color: white;
                 background: rgb(69, 167, 69);
             }
@@ -97,49 +101,65 @@
     }
 
     .right {
-        flex:3 ;
+        flex: 3;
         padding: 10px;
         display: flex;
         flex-direction: column;
         background: rgba(255, 255, 255, 0.30);
 
-        .comments{
+        .comments {
             margin-bottom: 10px;
             padding: 0.5rem;
-            background: rgb(213, 141, 247);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
             height: 350px;
             overflow: hidden;
         }
-        .comments:hover{
+
+        .comments:hover {
             overflow: scroll;
         }
-        .add-comments{
-            flex:150px;
+
+        .add-comments {
+            flex: 150px;
             display: flex;
             flex-direction: column;
-            padding: 0.5rem;
-            background: rgb(238, 200, 143);
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
 
-            textarea{
+            textarea {
+                height: 113px;
+                margin-top: 10px;
                 border-radius: 20px;
-                background: silver;
                 padding: 20px;
+                background: rgba(255, 255, 255, 0.15);
+                box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+                border-radius: 10px;
+                border: 1px solid rgba(255, 255, 255, 0.18);
             }
-            button{
+
+            button {
                 margin-top: 10px;
                 background: springgreen;
                 width: 100px;
                 padding: 5px;
                 border-radius: 10px;
                 transition: 0.5s;
+                z-index: 1;
             }
-            button:hover{
+
+            button:hover {
                 background: rgb(23, 116, 35);
                 color: white;
                 cursor: pointer;
             }
         }
-        
+
     }
 
 }
